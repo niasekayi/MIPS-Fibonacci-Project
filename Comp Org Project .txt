@@ -56,6 +56,26 @@ fibonacci_start:
     li $t1, 0    # First number (F0)
     li $t2, 1    # Second number (F1)
     move $t3, $t0  # Counter (N)
+fibonacci_loop:
+    # Print the current Fibonacci number (F0)
+    li $v0, 1
+    move $a0, $t1
+    syscall
+
+    # Print a space after the  number is printed
+    li $v0, 4
+    la $a0, space
+    syscall
+
+    # Calculating the next Fibonacci number
+    add $t4, $t1, $t2  # F_next = F0 + F1
+    move $t1, $t2      # Update F0 = F1
+    move $t2, $t4      # Update F1 = F_next
+
+    # Decrease variable by 1 each iteration (N)
+    sub $t3, $t3, 1
+    bgtz $t3, fibonacci_loop  # Continue if N > 0
+
 
 
 

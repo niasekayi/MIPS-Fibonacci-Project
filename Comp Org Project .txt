@@ -45,5 +45,13 @@ input_valid:
     # Once input is valid, return to main
     jr $ra
 
+# Fibonacci sequence calculation
+fibonacci_start:
+    # Print Fibonacci output header
+    li $v0, 44
+    la $a0, fib_output
+    syscall
+
+
 
 

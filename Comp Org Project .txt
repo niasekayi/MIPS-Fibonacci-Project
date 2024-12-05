@@ -48,7 +48,7 @@ input_valid:
 # Fibonacci sequence calculation
 fibonacci_start:
     # Print Fibonacci output header
-    li $v0, 44
+    li $v0, 4
     la $a0, fib_output
     syscall
 

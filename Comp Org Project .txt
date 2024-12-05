@@ -15,3 +15,20 @@ main:
     # End program
     li $v0, 10   # Exit syscall
     syscall
+
+# Input and validation loop
+input_loop:
+    # Print user input prompt
+    li $v0, 4
+    la $a0, prompt_input
+    syscall
+
+    # Read integer input
+    li $v0, 5
+    syscall
+    move $t0, $v0  # Store user input in $t0
+
+    # Validate the user number input to see if (N >= 25)
+    blt $t0, 25, input_invalid  # If N < 25, then the input is invalid
+    j input_valid               # If N>=25 then jump to valid input (j)
+

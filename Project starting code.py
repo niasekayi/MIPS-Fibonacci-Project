@@ -14,5 +14,7 @@ while True:
         else:
             print("Number is legal!")
             break  # stop the loop
+    except ValueError:
+    print("Invalid input! Please enter a valid integer.")
  
 

@@ -32,3 +32,13 @@ input_loop:
     blt $t0, 25, input_invalid  # If N < 25, then the input is invalid
     j input_valid               # If N>=25 then jump to valid input (j)(like python loop)
 
+input_invalid:
+    # Print the error message
+    li $v0, 4
+    la $a0, error_msg
+    syscall
+
+    # Loop back to prompt user again for new entry 
+    j input_loop
+
+

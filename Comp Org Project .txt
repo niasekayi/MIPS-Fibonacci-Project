@@ -3,7 +3,9 @@
 prompt_input: .asciiz "Enter a value for N (>= 25):\n"
 error_msg:    .asciiz "Illegal Number! Please try again.\n"
 fib_output:   .asciiz "Fibonacci sequence:\n"
+space:        .asciiz " "  # Define space to avoid errorss
 
+.globl main  # Create the global entry point 
 .text
 main:
     # Print the prompt and validate input

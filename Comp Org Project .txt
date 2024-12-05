@@ -41,4 +41,9 @@ input_invalid:
     # Loop back to prompt user again for new entry 
     j input_loop
 
+input_valid:
+    # Once input is valid, return to main
+    jr $ra
+
+
 

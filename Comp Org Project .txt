@@ -1,13 +1,13 @@
-.data
+.data 
 # Strings using for user inputs and messages
 prompt_input: .asciiz "Enter a value for N (>= 25):\n"
 error_msg:    .asciiz "Illegal Number! Please try again.\n"
 fib_output:   .asciiz "Fibonacci sequence:\n"
 space:        .asciiz " "  # Define space to avoid errorss
 
-.globl main  # Create the global entry point 
+.globl main_program  # Create the global entry point
 .text
-main:
+main_program:
     # Print the prompt and validate input
     jal input_loop
 
@@ -79,9 +79,3 @@ fibonacci_loop:
     bgtz $t3, fibonacci_loop  # Continue if N > 0
     # Return to the main after printing the Fibonacci sequence
     jr $ra
-
-
-
-
-
-

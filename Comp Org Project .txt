@@ -30,5 +30,5 @@ input_loop:
 
     # Validate the user number input to see if (N >= 25)
     blt $t0, 25, input_invalid  # If N < 25, then the input is invalid
-    j input_valid               # If N>=25 then jump to valid input (j)
+    j input_valid               # If N>=25 then jump to valid input (j)(like python loop)
 

@@ -1,0 +1,5 @@
+.data
+# Strings using for user inputs and messages
+prompt_input: .asciiz "Enter a value for N (>= 25):\n"
+error_msg:    .asciiz "Illegal Number! Please try again.\n"
+fib_output:   .asciiz "Fibonacci sequence:\n"

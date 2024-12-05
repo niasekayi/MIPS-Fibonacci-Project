@@ -15,6 +15,11 @@ while True:
             print("Number is legal!")
             break  # stop the loop
     except ValueError:
-    print("Invalid input! Please enter a valid integer.")
+        print("Invalid input! Please enter a valid integer.")
  
-
+#create the Fibonacci sequence using numbers entered by the user
+a, b = 0, 1
+print(f"The first {N} numbers in the Fibonacci sequence are:")
+for _ in range(N):
+    print(a, end=" ")
+    a, b = b, a + b

@@ -3,3 +3,15 @@
 prompt_input: .asciiz "Enter a value for N (>= 25):\n"
 error_msg:    .asciiz "Illegal Number! Please try again.\n"
 fib_output:   .asciiz "Fibonacci sequence:\n"
+
+.text
+main:
+    # Print the prompt and validate input
+    jal input_loop
+
+    # Once valid input is obtained, calculate the Fibonacci sequence 
+    jal fibonacci_start
+
+    # End program
+    li $v0, 10   # Exit syscall
+    syscall

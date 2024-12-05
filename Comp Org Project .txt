@@ -52,6 +52,10 @@ fibonacci_start:
     la $a0, fib_output
     syscall
 
+    # Set Fibonacci starting variables (formula uses fn=fn-1/fn-2, so initial values to start)
+    li $t1, 0    # First number (F0)
+    li $t2, 1    # Second number (F1)
+    move $t3, $t0  # Counter (N)
 
 
 

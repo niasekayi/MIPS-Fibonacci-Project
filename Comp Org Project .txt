@@ -1,17 +1,17 @@
-.data 
+.data
 # Strings using for user inputs and messages
 prompt_input: .asciiz "Enter a value for N (>= 25):\n"
 error_msg:    .asciiz "Illegal Number! Please try again.\n"
 fib_output:   .asciiz "Fibonacci sequence:\n"
-space:        .asciiz " "  # Define space to avoid errorss
+space:        .asciiz " "  # Define space to avoid errors
 
-.globl main_program  # Create the global entry point
 .text
-main_program:
+.globl main  # Create the global entry point
+main:
     # Print the prompt and validate input
     jal input_loop
 
-    # Once valid input is obtained, calculate the Fibonacci sequence 
+    # Once valid input is obtained, calculate the Fibonacci sequence
     jal fibonacci_start
 
     # End program
@@ -32,7 +32,7 @@ input_loop:
 
     # Validate the user number input to see if (N >= 25)
     blt $t0, 25, input_invalid  # If N < 25, then the input is invalid
-    j input_valid               # If N>=25 then jump to valid input (j)(like python loop)
+    j input_valid               # If N >= 25, jump to valid input
 
 input_invalid:
     # Print the error message
@@ -40,7 +40,7 @@ input_invalid:
     la $a0, error_msg
     syscall
 
-    # Loop back to prompt user again for new entry 
+    # Loop back to prompt user again for new entry
     j input_loop
 
 input_valid:
@@ -64,18 +64,19 @@ fibonacci_loop:
     move $a0, $t1
     syscall
 
-    # Print a space after the  number is printed
+    # Print a space after the number is printed
     li $v0, 4
     la $a0, space
     syscall
 
-    # Calculating the next Fibonacci number
+    # Calculate the next Fibonacci number
     add $t4, $t1, $t2  # F_next = F0 + F1
     move $t1, $t2      # Update F0 = F1
     move $t2, $t4      # Update F1 = F_next
 
-    # Decrease variable by 1 each iteration (N)
+    # Decrease counter by 1 each iteration (N)
     sub $t3, $t3, 1
     bgtz $t3, fibonacci_loop  # Continue if N > 0
+
     # Return to the main after printing the Fibonacci sequence
     jr $ra
